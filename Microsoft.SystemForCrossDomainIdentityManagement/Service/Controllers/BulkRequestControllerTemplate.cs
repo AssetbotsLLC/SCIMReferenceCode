@@ -4,21 +4,18 @@
 
 namespace Microsoft.SCIM
 {
-    using Microsoft.AspNetCore.Authorization;
-    using Microsoft.AspNetCore.Mvc;
     using System;
     using System.Collections.Generic;
     using System.Net;
     using System.Net.Http;
     using System.Threading.Tasks;
     using System.Web.Http;
+    using Microsoft.AspNetCore.Mvc;
 
-    [Route(ServiceConstants.RouteBulk)]
-    [Authorize]
     [ApiController]
-    public sealed class BulkRequestController : ControllerTemplate
+    public abstract class BulkRequestControllerTemplate : ControllerTemplate
     {
-        public BulkRequestController(IProvider provider, IMonitor monitor)
+        protected BulkRequestControllerTemplate(IProvider provider, IMonitor monitor)
             : base(provider, monitor)
         {
         }

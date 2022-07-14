@@ -3,15 +3,12 @@
 namespace Microsoft.SCIM
 {
     using System;
-    using Microsoft.AspNetCore.Authorization;
     using Microsoft.AspNetCore.Mvc;
 
-    [Route(ServiceConstants.RouteUsers)]
-    [Authorize]
     [ApiController]
-    public sealed class UsersController : ControllerTemplate<Core2EnterpriseUser>
+    public abstract class UsersControllerTemplate : ControllerTemplate<Core2EnterpriseUser>
     {
-        public UsersController(IProvider provider, IMonitor monitor)
+        protected UsersControllerTemplate(IProvider provider, IMonitor monitor)
             : base(provider, monitor)
         {
         }

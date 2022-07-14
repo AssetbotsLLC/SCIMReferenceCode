@@ -6,15 +6,12 @@ namespace Microsoft.SCIM
     using System.Net;
     using System.Net.Http;
     using System.Web.Http;
-    using Microsoft.AspNetCore.Authorization;
     using Microsoft.AspNetCore.Mvc;
 
-    [Route(ServiceConstants.RouteServiceConfiguration)]
-    [Authorize]
     [ApiController]
-    public sealed class ServiceProviderConfigurationController : ControllerTemplate
+    public abstract class ServiceProviderConfigurationControllerTemplate : ControllerTemplate
     {
-        public ServiceProviderConfigurationController(IProvider provider, IMonitor monitor)
+        protected ServiceProviderConfigurationControllerTemplate(IProvider provider, IMonitor monitor)
             : base(provider, monitor)
         {
         }

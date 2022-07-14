@@ -3,15 +3,12 @@
 namespace Microsoft.SCIM
 {
     using System;
-    using Microsoft.AspNetCore.Authorization;
     using Microsoft.AspNetCore.Mvc;
 
-    [Route(ServiceConstants.RouteGroups)]
-    [Authorize]
     [ApiController]
-    public sealed class GroupsController : ControllerTemplate<Core2Group>
+    public abstract class GroupsControllerTemplate : ControllerTemplate<Core2Group>
     {
-        public GroupsController(IProvider provider, IMonitor monitor)
+        protected GroupsControllerTemplate(IProvider provider, IMonitor monitor)
             : base(provider, monitor)
         {
         }
