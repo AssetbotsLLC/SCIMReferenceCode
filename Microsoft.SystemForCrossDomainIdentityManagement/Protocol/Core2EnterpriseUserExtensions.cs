@@ -940,6 +940,14 @@ namespace Microsoft.SCIM
                         .SingleOrDefault(
                             (PhoneNumber item) =>
                                 string.Equals(subAttribute.ComparisonValue, item.ItemType, StringComparison.Ordinal));
+
+                if (phoneNumber == null)
+                {
+                    phoneNumber = new PhoneNumber()
+                    {
+                        ItemType = subAttribute.ComparisonValue
+                    };
+                }
             }
             else
             {
